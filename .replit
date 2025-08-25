@@ -1,8 +1,2 @@
+run = "node fluxbot-bot/index.js"
 modules = ["nodejs-20"]
-run = "run"
-
-[nix]
-channel = "stable-25_05"
-
-[deployment]
-run = run = "node fluxbot-bot/index.js"
