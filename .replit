@@ -1,2 +1,5 @@
 run = "node fluxbot-bot/index.js"
 modules = ["nodejs-20"]
+
+[nix]
+packages = ["vim"]
