@@ -4,5 +4,4 @@ run = "run"
 [nix]
 channel = "stable-25_05"
 
-[deployment]
-run = run = "node fluxbot-bot/index.js"
+run = "node fluxbot-bot/index.js"
