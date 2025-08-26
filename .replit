@@ -2,7 +2,7 @@ run = "node fluxbot-bot/index.js"
 modules = ["nodejs-20"]
 
 [nix]
-packages = ["vim", "imagemagick6", "run"]
+packages = ["vim", "imagemagick6", "run", "killall"]
 
 [workflows]
 runButton = "Start Bot"
