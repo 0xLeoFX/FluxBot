@@ -3,3 +3,15 @@ modules = ["nodejs-20"]
 
 [nix]
 packages = ["vim", "imagemagick6", "run"]
+
+[workflows]
+runButton = "Start Bot"
+
+[[workflows.workflow]]
+name = "Start Bot"
+author = 46894758
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "node fluxbot-bot/index.js"
