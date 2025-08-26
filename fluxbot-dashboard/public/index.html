@@ -1,8 +1,0 @@
-<html><body><h1>FluxBot Dashboard</h1><div id="leads"></div><script>
-  fetch('/leads').then(res => res.json()).then(leads => {
-    const div = document.getElementById('leads');
-    leads.forEach(lead => {
-      div.innerHTML += `<p>${lead.username}: ${lead.message} (${lead.timestamp})</p>`;
-    });
-  });
-</script></body></html>
