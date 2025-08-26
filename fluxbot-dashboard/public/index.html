@@ -1,22 +1,8 @@
-<html><body><h1>FluxBot Dashboard</h1><div id="leads"></div><script src="/socket.io/socket.io.js"></script><script>
-  function updateLeads() {
-    fetch('/leads').then(res => res.json()).then(data => {
-      const { leads, consents } = data;
-      const div = document.getElementById('leads');
-      div.innerHTML = '';
-      leads.forEach(lead => {
-        const consent = consents.find(c => c.userId === lead.userId);
-        div.innerHTML += `<p>${lead.username}: ${lead.message} (${lead.timestamp}) <button onclick="processLead('${lead._id}')">Process</button> Consent: ${consent ? (consent.agreed ? 'Yes' : 'No') : 'N/A'}</p>`;
-      });
+<html><body><h1>FluxBot Dashboard</h1><div id="leads"></div><script>
+  fetch('/leads').then(res => res.json()).then(leads => {
+    const div = document.getElementById('leads');
+    leads.forEach(lead => {
+      div.innerHTML += `<p>${lead.username}: ${lead.message} (${lead.timestamp})</p>`;
     });
-  }
-
-  function processLead(id) {
-    fetch('/process-lead', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ _id: id }) })
-      .then(() => updateLeads());
-  }
-
-  updateLeads();
-  const socket = io();
-  socket.on('leadUpdated', updateLeads);
+  });
 </script></body></html>
