@@ -1,6 +1,6 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
-require('dotenv').config();
+require('dotenv').config({ quiet: true });
 
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
